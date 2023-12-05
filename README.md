@@ -1,6 +1,10 @@
+
 ## Configuração de Ambiente para coleta de dados de QoS (5QI) e Análise de dados utilizando Prometheus e NWDAF
 
 O tutorial foi baseado no ambiente divulgado pelo Ciro Macedo no vídeo disponível em https://github.com/ciromacedo/UE-non3GPP-v1 e gravado em vídeo em https://youtu.be/UswQTnTZGt4
+
+# Introdução 
+Este trabalho tem como objetivo coletar os parâmetros de qualidade de serviço (Quality of Service - QoS) de sessões de equipamentos de usuário (User Equipment - UE) em uma rede 5G utilizando o software Prometheus conectado ao túnel GTP e a função NWDAF (Função de Análise de Dados de Rede).
 
 # Ambiente
 Ambiente necessita de 6 máquinas para funcionar. O ambiente foi desenvolvido na AWS. Ao acessar deve-se criar 6 máquinas com os seguintes nomes e requisitos abaixo:
@@ -152,6 +156,6 @@ A NWDAF será inserida na máquina com o core na pasta .go/src/free5gc/openapi/
 descrever instalação da NWDAF
 ```
 
-# Conclusão
+## Conclusão
 
-Com isso todo o ambiente está pronto para iniciar, agora será necessário acessar os arquivos de configuração de IP de AMF, N3IWF entre outros que seguiremos mais adiante neste tutorial.
+O ambiente foi construído com todos os requisitos necessários, a coleta de dados do túnel GTP foi possível através do Prometheus e exibidos com auxílio do Grafana, portanto 2/3 das expectativas apresentadas na introdução deste trabalho foram cumpridos. No entanto, a coleta dos dados para a NWDAF, bem como realizar a análise destes dados dentro desta function não foi possível no decorrer deste projeto e continua em processo pelo autor com expectativa de conclusão até 11/12/2023.
