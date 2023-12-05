@@ -2,7 +2,7 @@
     <img src="./img/capa.png" width="900"/>
 </p>
 
-## Configuração de Ambiente para coleta de dados de QoS (5QI) e Análise de dados utilizando Prometheus e NWDAF
+## Coleta e análise de parâmetros de qualidade de serviço em sessões de dados de uma rede 5G utilizando Prometheus, Grafana e NWDAF
 
 O tutorial foi baseado no ambiente divulgado pelo Ciro Macedo no vídeo disponível em https://github.com/ciromacedo/UE-non3GPP-v1 e gravado em vídeo em https://youtu.be/UswQTnTZGt4
 
