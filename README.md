@@ -141,7 +141,7 @@ descrever instalação do Grafana
 Com todas as máquinas instaladas é possível fazer o monitoramento de vários recursos das UEs. O dashboard abaixo demonstra uma view básica criada no Grafana para monitoramento do túnel (gretun1) básica, onde são monitorados recursos de memória e utilização de CPU bem como disponibilidade, upload e download do túnel.
 
 <p float="center">
-    <img src="./img/monitoramento_ue.png" width="600"/>
+    <img src="./img/monitoramento_ue.png" width="900"/>
 </p>
 
 # NWDAF
