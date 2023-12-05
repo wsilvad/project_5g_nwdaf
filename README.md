@@ -127,6 +127,17 @@ Com o ambiente online e funcional deve ser possível realizar teste de ping e ac
     <img src="./img/ping.png" width="600"/>
 </p>
 
+
+# Túnel GTP
+O túnel GPRS Tunneling Protocol (GTP) é um túnel de controle que é usado para transportar mensagens de controle entre o núcleo da rede 5G (5GC) e as estações base (eNBs). Essas mensagens são usadas para gerenciar a conexão entre os usuários e a rede, incluindo a autenticação, autorização e configuração de sessão.
+
+O túnel GTP é implementado usando o protocolo GTP, que é um protocolo padrão da indústria para transportar dados de controle em redes móveis. O túnel GTP é criado entre o 5GC e a eNB quando um usuário se conecta à rede. O túnel permanece aberto durante toda a duração da sessão do usuário.
+
+As mensagens de controle que são transportadas pelo túnel GTP incluem:
+- Mensagens de autenticação e autorização
+- Mensagens de configuração de sessão
+- Mensagens de gerenciamento de sessão
+
 # Coleta dos dados com Prometheus e Exibição com Grafana
 O Prometheus é um sistema open-source de monitoramento e coleta de dados que ajuda as equipes de operações de TI a coletar métricas sobre seus sistemas e aplicações. Ele faz parte da Cloud Native Computing Foundation (CNCF) e oferece uma solução escalável e flexível para monitorar sistemas complexos. O Grafana é utilizado neste contexto para melhorar a parte visual dos dados obtidos pelo Prometheus. O Prometheus deve ser construido através de uma máquina dedicada, que chamaremos de prometheus_server e em cada máquina a ser monitorado (neste caso as UEs) deve ser instalado o prometheus node_exporter.
 
