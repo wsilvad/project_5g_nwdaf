@@ -1,3 +1,6 @@
+<p float="center">
+    <img src="./img/capa.png" width="900"/>
+</p>
 
 ## Configuração de Ambiente para coleta de dados de QoS (5QI) e Análise de dados utilizando Prometheus e NWDAF
 
