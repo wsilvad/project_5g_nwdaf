@@ -118,7 +118,7 @@ ansible-playbook dev/UEnon3GPP-setup.yaml -i dev/free5gc-v3.1.1/hosts
 Com o ambiente online e funcional deve ser possível realizar teste de ping e acesso entre as máquinas, bem como gerar tráfego no túnel GTP, conforme a imagem abaixo.
 
 <p float="center">
-    <img src="./img/ping.png" width="200"/>
+    <img src="./img/ping.png" width="600"/>
 </p>
 
 # Conclusão
