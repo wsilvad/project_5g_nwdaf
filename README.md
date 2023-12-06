@@ -144,9 +144,27 @@ As mensagens de controle que são transportadas pelo túnel GTP incluem:
 # Coleta dos dados com Prometheus e Exibição com Grafana
 O Prometheus é um sistema open-source de monitoramento e coleta de dados que ajuda as equipes de operações de TI a coletar métricas sobre seus sistemas e aplicações. Ele faz parte da Cloud Native Computing Foundation (CNCF) e oferece uma solução escalável e flexível para monitorar sistemas complexos. O Grafana é utilizado neste contexto para melhorar a parte visual dos dados obtidos pelo Prometheus. O Prometheus deve ser construido através de uma máquina dedicada, que chamaremos de prometheus_server e em cada máquina a ser monitorado (neste caso as UEs) deve ser instalado o prometheus node_exporter.
 
+Clonar repositório de auxilio para implementação do Prometheus
 ```
-descrever instalação do Prometheus server
+git clone https://github.com/in4it/prometheus-course
 ```
+Na máquina em que será utilizado o server do Prometheus acessar pasta e utilizar script de instalação com auxilio do arquivo ./1-install.sh
+```
+cd prometheus/scripts/1-install.sh
+./1-install.sh
+```
+Para coletar os dados dos exporters acessar o arquivo de configuração do prometheus com o seguinte comando
+```
+nano etc/prometheus/prometheus.yml 
+```
+e configure o arquivo com o ip do exporter instalado
+```
+- job_name: 'node_ue1'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['192.168.10.19:9100']
+```
+
 Após será realizada a instalação do node_exporter nas UEs
 ```
 descrever instalação do Prometheus node_exporter
