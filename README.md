@@ -144,34 +144,60 @@ As mensagens de controle que são transportadas pelo túnel GTP incluem:
 # Coleta dos dados com Prometheus e Exibição com Grafana
 O Prometheus é um sistema open-source de monitoramento e coleta de dados que ajuda as equipes de operações de TI a coletar métricas sobre seus sistemas e aplicações. Ele faz parte da Cloud Native Computing Foundation (CNCF) e oferece uma solução escalável e flexível para monitorar sistemas complexos. O Grafana é utilizado neste contexto para melhorar a parte visual dos dados obtidos pelo Prometheus. O Prometheus deve ser construido através de uma máquina dedicada, que chamaremos de prometheus_server e em cada máquina a ser monitorado (neste caso as UEs) deve ser instalado o prometheus node_exporter.
 
-Clonar repositório de auxilio para implementação do Prometheus
+Clonar repositório de auxilio para implementação do Prometheus na máquina que será instalado o server
 ```
 git clone https://github.com/in4it/prometheus-course
 ```
-Na máquina em que será utilizado o server do Prometheus acessar pasta e utilizar script de instalação com auxilio do arquivo ./1-install.sh
+Acessar pasta e utilizar script de instalação com auxilio do arquivo ./1-install.sh
 ```
-cd prometheus/scripts/1-install.sh
+cd prometheus/scripts/
 ./1-install.sh
 ```
 Para coletar os dados dos exporters acessar o arquivo de configuração do prometheus com o seguinte comando
 ```
 nano etc/prometheus/prometheus.yml 
 ```
-e configure o arquivo com o ip do exporter instalado
+Configure o arquivo com o ip do exporter instalado, se for instalado com porta padrão os dados serão enviados pela porta 9100
 ```
 - job_name: 'node_ue1'
     scrape_interval: 5s
     static_configs:
-      - targets: ['192.168.10.19:9100']
+      - targets: ['IP_TARGET:9100']
 ```
 
 Após será realizada a instalação do node_exporter nas UEs
+Clonar repositório de auxilio para implementação do Prometheus na máquina da UE na qual será instalado o exporter
 ```
-descrever instalação do Prometheus node_exporter
+git clone https://github.com/in4it/prometheus-course
 ```
+Acessar pasta e utilizar script de instalação com auxilio do arquivo ./2-node-exporter.sh
+```
+cd prometheus/scripts/
+./2-node-exporter.sh
+```
+
 Por fim será instalado o Grafana na mesma máquina do Prometheus e conectar ao banco de dados do mesmo
+Instalar pré-requisitos
 ```
-descrever instalação do Grafana
+sudo apt-get install -y apt-transport-https software-properties-common wget
+```
+Importar chave GPG
+```
+sudo mkdir -p /etc/apt/keyrings/
+wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
+```
+Adicionar repositório estável a lista de pacotes
+```
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+```
+Instalar grafana
+```
+sudo apt-get update
+sudo apt-get install grafana
+```
+Verificar instalação e se o programa está em execução
+```
+sudo service grafana-server status
 ```
 
 Com todas as máquinas instaladas é possível fazer o monitoramento de vários recursos das UEs. O dashboard abaixo demonstra uma view básica criada no Grafana para monitoramento do túnel (gretun1) básica, onde são monitorados recursos de memória e utilização de CPU bem como disponibilidade, upload e download do túnel.
