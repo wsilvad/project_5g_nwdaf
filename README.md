@@ -157,7 +157,7 @@ Para coletar os dados dos exporters acessar o arquivo de configuração do prome
 ```
 nano etc/prometheus/prometheus.yml 
 ```
-Configure o arquivo com o ip do exporter instalado, se for instalado com porta padrão os dados serão enviados pela porta 9100
+Configure o arquivo com o ip do exporter instalado, se for instalado com porta padrão os dados serão enviados pela porta 9100. Já o Prometheus server é acessado através da porta 9090 e pode ser acessado via web.
 ```
 - job_name: 'node_ue1'
     scrape_interval: 5s
@@ -195,7 +195,7 @@ Instalar grafana
 sudo apt-get update
 sudo apt-get install grafana
 ```
-Verificar instalação e se o programa está em execução
+Verificar instalação e se o programa está em execução. O Grafana é executado na porta 3000 e pode ser acessado via web.
 ```
 sudo service grafana-server status
 ```
@@ -239,6 +239,29 @@ Gerar código da NWDAF a partir do yaml na pasta ./api/Nwdaf_Analytics_Info/
 sudo openapi-generator-cli generate -i TS29520_Nnwdaf_AnalyticsInfo.yaml -g go --skip-validate-spec -o api/Nwdaf_Analytics_Info/
 ```
 Com os arquivos .go gerados da NWDAF é possível realizar as implementações para coleta dos dados gerador pelo Prometheus
+
+## Iniciar o ambiente das máquinas
+Inicializar o Core 
+```
+cd go/src/free5gc/
+./run.sh
+```
+Inicializar o webconsole para monitoramento das UEs
+```
+cd go/src/free5gc/webconsole/
+go run server.go
+```
+
+Inicializar a N3IWF
+```
+cd go/src/free5gc/NFs/n3iwf/
+go run cmd/main.go
+```
+Inicializar a UE
+```
+cd go/src/UE-non3GPP/
+go run cmd/main.go ue
+```
 
 ## Conclusão
 
