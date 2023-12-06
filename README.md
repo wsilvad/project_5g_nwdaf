@@ -240,7 +240,7 @@ sudo openapi-generator-cli generate -i TS29520_Nnwdaf_AnalyticsInfo.yaml -g go -
 ```
 Com os arquivos .go gerados da NWDAF é possível realizar as implementações para coleta dos dados gerador pelo Prometheus
 
-## Iniciar o ambiente das máquinas
+## Iniciar o ambiente
 Inicializar o Core 
 ```
 cd go/src/free5gc/
