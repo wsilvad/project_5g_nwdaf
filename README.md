@@ -166,10 +166,36 @@ Com todas as máquinas instaladas é possível fazer o monitoramento de vários 
 A NWDAF é responsável por coletar dados de rede, analisar o desempenho e fornecer insights valiosos para otimizar a qualidade do serviço e à eficiência da rede 5G. Ela usa algoritmos e técnicas avançadas de análise de dados para identificar tendências, detectar anomalias e fornecer recomendações para melhorar o desempenho e a disponibilidade da rede. A NWDAF proporciona diversos benefícios, como o monitoramento em tempo real, a capacidade de predição de problemas e à otimização automática da rede para garantir uma experiência de usuário excepcional.
 
 A NWDAF será inserida na máquina com o core na pasta .go/src/free5gc/openapi/
+
+Instalar NPM
 ```
-descrever instalação da NWDAF
+sudo apt install nodejs
 ```
+Instalar ferramentas openapi 
+```
+npm install @openapitools/openapi-generator-cli -g
+```
+Download petstore.yaml para realizar o teste do apenapi-generator
+```
+npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
+```
+
+Após o teste bem sucedido podemos iniciar a instalação do yaml do NWDAF
+
+Crie a pasta dentro do free5gc
+```
+mkdir ./go/src/free5gc/openapi/
+```
+Clonar arquivo yaml do NWDAF
+```
+git clone https://github.com/jdegre/5GC_APIs/blob/Rel-18/TS29520_Nnwdaf_AnalyticsInfo.yaml
+```
+Gerar código da NWDAF a partir do yaml na pasta ./api/Nwdaf_Analytics_Info/
+```
+sudo openapi-generator-cli generate -i TS29520_Nnwdaf_AnalyticsInfo.yaml -g go --skip-validate-spec -o api/Nwdaf_Analytics_Info/
+```
+Com os arquivos .go gerados da NWDAF é possível realizar as implementações para coleta dos dados gerador pelo Prometheus
 
 ## Conclusão
 
-O ambiente foi construído com todos os requisitos necessários, a coleta de dados do túnel GTP foi possível através do Prometheus e exibidos com auxílio do Grafana, portanto 2/3 das expectativas apresentadas na introdução deste trabalho foram cumpridos. No entanto, a coleta dos dados para a NWDAF, bem como realizar a análise destes dados dentro desta function não foi possível no decorrer deste projeto e continua em processo pelo autor com expectativa de conclusão até 11/12/2023.
+O ambiente foi construído com todos os requisitos necessários, a coleta de dados do túnel GTP foi possível através do Prometheus e exibidos com auxílio do Grafana, portanto 2/3 das expectativas apresentadas na introdução deste trabalho foram cumpridas. No entanto, a coleta dos dados para a NWDAF, bem como realizar a análise destes dados dentro desta function não foi possível no decorrer deste projeto e continua em processo pelo autor com expectativa de conclusão até 11/12/2023.
