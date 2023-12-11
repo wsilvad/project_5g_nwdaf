@@ -265,4 +265,4 @@ go run cmd/main.go ue
 
 ## Conclusão
 
-O ambiente foi construído com todos os requisitos necessários, a coleta de dados do túnel GTP foi possível através do Prometheus e exibidos com auxílio do Grafana, portanto 2/3 das expectativas apresentadas na introdução deste trabalho foram cumpridas. No entanto, a coleta dos dados para a NWDAF, bem como realizar a análise destes dados dentro desta function não foi possível no decorrer deste projeto e continua em processo pelo autor com expectativa de conclusão até 11/12/2023.
+O ambiente foi construído com todos os requisitos necessários, a coleta de dados do túnel GTP foi possível através do Prometheus e exibidos com auxílio do Grafana, portanto 2/3 das expectativas apresentadas na introdução deste trabalho foram cumpridas. No entanto, a coleta dos dados para a NWDAF, bem como realizar a análise destes dados dentro desta function não foi possível no decorrer deste projeto e continua em processo pelo autor com expectativa de conclusão até 30/12/2023.
